@@ -41,6 +41,6 @@ inputs:
     cleanTargetFolder: true
 
 - task: PublishBuildArtifacts@1
- displayName: 'publish artifacts'
+  displayName: 'publish artifacts'
  inputs:  
-  SourceFolder: '$(Build.artifactStagingDirectory)'
+  SourceFolder: '$(Build.ArtifactStagingDirectory)'
