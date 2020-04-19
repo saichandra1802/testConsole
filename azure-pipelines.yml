@@ -31,16 +31,3 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-
-- task: CopyFiles@2
-displayName: 'Copy deployment content'
-inputs: 
-    SourceFolder: '$(Build.SourcesDirectory)/deployment'
-    contents: '**\*' 
-    targetFolder: $(Build.ArtifactStagingDirectory)/deployment
-    cleanTargetFolder: true
-
-- task: PublishBuildArtifacts@1
-  displayName: 'publish artifacts'
- inputs:  
-  SourceFolder: '$(Build.artifactStagingDirectory)'
