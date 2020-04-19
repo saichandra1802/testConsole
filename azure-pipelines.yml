@@ -43,4 +43,4 @@ inputs:
 - task: PublishBuildArtifacts@1
   displayName: 'publish artifacts'
  inputs:  
-  SourceFolder: '$(Build.ArtifactStagingDirectory)'
+  SourceFolder: '$(Build.artifactStagingDirectory)'
