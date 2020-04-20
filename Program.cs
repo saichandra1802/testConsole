@@ -8,8 +8,6 @@ namespace DevOpsConsole
         {
             Console.WriteLine("Hello World!");
 
-
-
         }
     }
 }
