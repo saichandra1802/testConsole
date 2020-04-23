@@ -9,12 +9,6 @@ trigger:
 pool:
   vmImage: 'windows-latest'
 
-name: Hosted VS2017
- demands:
- - msbuild
- - visualstudio
- - vstest
-
 variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
@@ -38,4 +32,13 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet publish $(buildConfiguration)'
+  inputs:
+    command: msbuild
+    publishWebProjects: True
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    zipAfterPublish: True
 
+- task: PublishBuildArtifacts@1
+  displayName: 'publish artifacts'
